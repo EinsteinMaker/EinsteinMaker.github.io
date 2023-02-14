@@ -20,6 +20,10 @@
             </div>
         </div>
 
+        <template id="img">
+            <img src="" alt="">
+        </template>
+
         <template class="sidebar-tem" id="sidebar-gimp-art">
             <a href="javascript:void(0)" class="closebtn" onclick="closeSidePage()">&times;</a>
             <div class="container">
@@ -41,11 +45,27 @@
                     <div class="col-lg-4">
                         <h1>Contact</h1>
                         <h3>placeholder@potato.gov</h3>
-                        <h3>+13 013 13 13</h3>
+                        <h3>+13 666 13 13</h3>
                         <h3>Blahblah blah blahblahblah</h3>
                     </div>
                 </div>
             </div>
+
+            <div class="container col-xxl-8 px-4 py-5">
+                <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                  <div class="col-10 col-sm-8 col-lg-6">
+                    <img src="https://placekitten.com/512" class="d-block mx-lg-auto img-fluid rounded-5" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+                  </div>
+                  <div class="col-lg-6">
+                    <h1 class="display-5 fw-bold lh-1 mb-3">Responsive left-aligned hero with image</h1>
+                    <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                      <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+                      <button type="button" class="btn btn-outline-secondary btn-lg px-4">Default</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             
             <div class="container text-center p-5">
                 <h1>Projects</h1>
@@ -58,7 +78,7 @@
                           <h3>GIMP Art</h3>
                           <h5 class="text-muted">Messing around with gimp</h5>
                           <p>A collection of abstract art that I created while exploring GIMP's features</p>
-                          <button class="btn btn-primary w-100">View Gallery</button>
+                          <button class="btn btn-primary w-100" id="btn-gimp-art">View Gallery</button>
                     </div>
                     <div class="col-sm">
                           <h3>Column 2</h3>
