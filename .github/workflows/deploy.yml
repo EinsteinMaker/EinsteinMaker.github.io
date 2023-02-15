@@ -31,11 +31,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Generate Image Thumbnails
-        uses: subic/ghaction-thumbnails@master
-        with: # Required arguments:
-          source: 'art' # Input images folder, required both as an argument and as an existing directory path in repository which is also the reason for the previous checkout step (default: 'images').
-          output: 'art-thumbnails' # Output thumbnails container folder, can be same as input or base directory, if the directory doesn't exist it will be created recursively (default: 'thumbnails').
-          sizes: 480 # Output widths or dimensions separated with an 'x', can be a number or a comma-delimited string. Prefix height only sizes with 'x' when not setting widths; eg. "x360, x1080" (default: 480)).
+        uses: sharadcodes/img-resizer@v1.1
+        with:
+          image-folder: 'art'
+          new-resolution: '480x'
+          output-folder: "art-thumbnails"
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
