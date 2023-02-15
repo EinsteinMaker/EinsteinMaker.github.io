@@ -4,9 +4,18 @@
     font-family: "Nunito";
 }
 
+.gallery-img {
+    width: 25vw;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.7s;
+    margin: 5px;
+}
+
+.img-link {
+    display: inline-block;
+}
+
 .pfp {
-    height: 200px;
-    width: 200px;
     border-width: 3px;
     border-style: solid;
 }
@@ -29,7 +38,7 @@ body {
     padding-top: 60px;
 }
 
-.sidebar a {
+.sidebar > a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
