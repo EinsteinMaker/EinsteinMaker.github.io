@@ -42,16 +42,17 @@ document.addEventListener("DOMContentLoaded", () => {
         let no = i.toString().padStart(3, "0")
         let clone = $("#img-tem")[0].content.cloneNode(true)
         let a = clone.querySelector("a")
-        let src = "art/" + no + ".png"
-        a.href = src
+        let src_thumb = "art/thumbnail/" + no + ".png"
+        let src_full = "art/" + no + ".png"
+        a.href = src_thumb
         let img = clone.querySelector("img")
         a.dataset.galleryId = "" + no
-        img.src = src
+        img.src = src_thumb
         a.addEventListener("click", (e) => {
             e.preventDefault()
             console.log("Test")
         })
-        new Image().src = src
+        new Image().src = src_thumb
         $("#sidebar-gimp-art")[0].content.querySelector(".container").appendChild(clone.querySelector(":first-child"))
     }
 })
