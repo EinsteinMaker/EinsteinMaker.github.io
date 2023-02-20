@@ -47,11 +47,35 @@ function showImgPreview(elem) {
         // .css("display", "block")
     $("#preview-img")[0].src = "art/" + elem.parentElement.dataset.galleryId + ".png"
     $("#sidebar").css("overflow-y", "hidden")
+    setTimeout(() => {
+        $(document).one("fullscreenchange", () => {
+            $(document).one("fullscreenchange", () => {
+                // location.reload()
+                hideImgPreview(elem)
+                shrinkImage(elem)
+            })
+        })
+        document.documentElement.requestFullscreen()
+    }, 500)
 }
 
 function shrinkImage(elem) {
     enlargedImage = null
     elem.classList.remove("enlarged")
+    $(".gallery-img:not(.enlarged)")
+    .css("transform", "")
+    .css("opacity", "1")
+}
+
+function hideImgPreview(elem) {
+    $("#image-preview")
+        .css("transform", "scale(0)")
+        .css("opacity", "0")
+        // .css("display", "none")
+    setTimeout(() => {
+        $("#preview-img")[0].src = ""
+    }, 500);
+    $("#sidebar").css("overflow-y", "auto")
 }
 
 history.scrollRestoration = "manual"
