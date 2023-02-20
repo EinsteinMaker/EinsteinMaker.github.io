@@ -1,3 +1,5 @@
+var enlargedImage = null
+
 function openSidePage(id) {
     $("#sidebar").html($("template#" + id)[0].content.cloneNode(true))
     $("#sidebar").css("width", "100%")
@@ -30,13 +32,50 @@ function closeSidePage() {
     $("body").css("overflow", "auto")
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function enlargeImage(elem) {
+    enlargedImage = elem
+    elem.classList.add("enlarged")
+    $(".gallery-img:not(.enlarged)")
+        .css("transform", "scale(0.75)")
+        .css("opacity", "0.75")
+}
+
+function showImgPreview(elem) {
+    $("#image-preview")
+        .css("transform", "scale(1)")
+        .css("opacity", "1")
+        // .css("display", "block")
+    $("#preview-img")[0].src = "art/" + elem.parentElement.dataset.galleryId + ".png"
+    $("#sidebar").css("overflow-y", "hidden")
+}
+
+function shrinkImage(elem) {
+    enlargedImage = null
+    elem.classList.remove("enlarged")
+}
+
+history.scrollRestoration = "manual"
+
+$(window).on("beforeunload", () => {
+    $(window).scrollTop(0)
+})
+
+$(document).ready(() => {
+    $("body").css("transform", "none")
+})
+
+$(document).ready(() => {
     $("#btn-gimp-art").on("click", () => {
         openSidePage("sidebar-gimp-art")
     })
+    $(document).on("click", (e) => {
+        if (e.target.classList.contains("closebtn")) {
+            closeSidePage()
+        }
+    })
 })
 
-document.addEventListener("DOMContentLoaded", () => {
+$(document).ready(() => {
     let imagecount = 28
     for (let i = 1; i <= imagecount; i++) {
         let no = i.toString().padStart(3, "0")
@@ -44,15 +83,19 @@ document.addEventListener("DOMContentLoaded", () => {
         let a = clone.querySelector("a")
         let src_thumb = "art/thumbnail/" + no + ".png"
         let src_full = "art/" + no + ".png"
-        a.href = src_thumb
+        a.href = "javascript:void(0)" // src_full
         let img = clone.querySelector("img")
         a.dataset.galleryId = "" + no
         img.src = src_thumb
-        a.addEventListener("click", (e) => {
-            e.preventDefault()
-            console.log("Test")
-        })
-        // new Image().src = src_thumb
         $("#sidebar-gimp-art")[0].content.querySelector(".container").appendChild(clone.querySelector(":first-child"))
     }
+    document.addEventListener("click", (e) => {
+        if (e.target.classList.contains("gallery-img") && enlargedImage === null) {
+            enlargeImage(e.target)
+            // setTimeout(() => {
+            //     location.assign("art/" + e.target.parentElement.dataset.galleryId + ".png")
+            // }, 250)
+            showImgPreview(e.target)
+        }
+    })
 })
