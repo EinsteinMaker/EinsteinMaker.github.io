@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
             e.preventDefault()
             console.log("Test")
         })
-        new Image().src = src_thumb
+        // new Image().src = src_thumb
         $("#sidebar-gimp-art")[0].content.querySelector(".container").appendChild(clone.querySelector(":first-child"))
     }
 })
