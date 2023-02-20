@@ -30,12 +30,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Generate Image Thumbnails
-        uses: sharadcodes/img-resizer@v1.1
-        with:
-          image-folder: 'art'
-          new-resolution: '480x'
-          output-folder: "art-thumbnails"
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
