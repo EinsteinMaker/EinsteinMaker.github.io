@@ -123,3 +123,9 @@ $(document).ready(() => {
         }
     })
 })
+
+$(document).on("keydown", (e) => {
+    if (e.keyCode === 27) { // Escape
+        closeSidePage()
+    }
+})
