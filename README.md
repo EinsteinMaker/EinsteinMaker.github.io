@@ -1,2 +1,2 @@
-# [EinsteinMaker.github.io](https://google.com)
+# [EinsteinMaker.github.io](https://einsteinmaker.github.io)
 ## A website for my projects and profile.
