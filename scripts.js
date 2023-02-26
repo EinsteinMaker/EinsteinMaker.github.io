@@ -1,10 +1,15 @@
 var enlargedImage = null
 
 function openSidePage(id) {
-    $("#sidebar").html($("template#" + id)[0].content.cloneNode(true))
-    $("#sidebar").css("width", "100%")
-    $("#sidebar").css("opacity", "1")
-    $("#main").css("transform", "scaleX(0)")
+    $(':focus').blur()
+    $("#sidebar")
+        .html($("template#" + id)[0].content.cloneNode(true))
+        .css("width", "100%")
+        .css("opacity", "1")
+        .attr("tabindex", "")
+    $("#main")
+        .css("transform", "scaleX(0)")
+        .attr("tabindex", "-1")
     $("body").css("overflow", "hidden")
     switch (id) {
         case "sidebar-gimp-art":
@@ -26,9 +31,14 @@ function fadeinGalleryImage(count, list) {
 }
 
 function closeSidePage() {
-    $("#sidebar").css("width", "0%")
-    $("#sidebar").css("opacity", "0")
-    $("#main").css("transform", "scaleX(1)")
+    $(':focus').blur()
+    $("#sidebar")
+        .css("width", "0%")
+        .css("opacity", "0")
+        .attr("tabindex", "-1")
+    $("#main")
+        .css("transform", "scaleX(1)")
+        .attr("tabindex", "")
     $("body").css("overflow", "auto")
 }
 

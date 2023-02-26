@@ -65,11 +65,15 @@ body {
 } */
 
 .gallery-img {
-    width: 25vw;
+    width: 100%;
     opacity: 0;
     transition: opacity .5s, transform .7s, position .5s, top .5s, left .5s;
-    margin: 5px;
     position: relative;
+}
+
+.img-link {
+    width: 30%;
+    margin: 1%;
 }
 
 .gallery-img.enlarged {
